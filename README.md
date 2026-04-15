@@ -4,21 +4,9 @@
 
 Entry for Gamedev.js Jam 2026 **Machines**
 
-<big>[🥤 Vending Machine Mayhem](#-game-design-document)</big>
-
 https://itch.io/jam/gamedevjs-2026
 
 https://gamedevjs.com/competitions/gamedev-js-jam-2026-start-and-theme-announcement/
-
----
-
-1. [Game Vision](#1-game-vision)
-2. [Core Loop](#2-core-loop)
-3. [Gameplay Mechanics](#3-gameplay-mechanics)
-4. [Progression System (Upgrades)](#4-progression-system-upgrades)
-5. [World Design (The Map)](#5-world-design-the-map)
-6. [Visual & Sound](#6-visuals--sound)
-7. [Wind Loss Conditions](#7-winloss-conditions)
 
 ---
 
