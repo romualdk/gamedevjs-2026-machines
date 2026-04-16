@@ -84,14 +84,13 @@ At the end of each wave, the player chooses one of three random power-up cards:
 
 | Category | Asset Name | Description | Status | File Link |
 | :--- | :--- | :--- | :---: | :--- |
- **Characters** | Player Sprite Sheet (Boy) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](./assets/sprites/player_girl.png) |
-| **Characters** | Player Sprite Sheet (Girl) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](./assets/sprites/player_girl.png) |
-| **Enemies** | Soda Machine | Enemy: shoots soda cans | ⏳ In Progress | [link](#) |
-| **Enemies** | Snack Machine | Enemy: shotgun-style chip spray | ❌ Todo | [link](#) |
-| **Enemies** | Coffee Bot | Enemy: leaves hot coffee puddles | ❌ Todo | [link](#) |
-| **Enemies** | Toy Capsule | Enemy: fast, explosive capsules | ❌ Todo | [link](#) |
+ **Characters** | Player Sprite Sheet (Boy) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](assets/spritesheet-boy-4x3-100x150.png) |
+| **Characters** | Player Sprite Sheet (Girl) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](assets/spritesheet-girl-4x3-100x150.png) |
+| **Enemies** | Soda Machine | Enemy: shoots soda cans | ✅ Done | [link](assets/spritesheet-machine-red-4x2-250x350.png) |
+| **Enemies** | Snack Machine | Enemy: shotgun-style chip spray | ✅ Done | [link](assets/spritesheet-machine-yellow-4x2-250x350.png) |
+| **Enemies** | Coffee Bot | Enemy: leaves hot coffee puddles | ✅ Done | [link](assets/spritesheet-machine-blue-4x2-250x350.png) |
 | **Enemies** | Industrial Fridge | Final Boss | ❌ Todo | [link](#) |
-| **Projectiles**| Soda Can / Chips | Enemy projectiles | ❌ Todo | [link](#) |
+| **Projectiles**| Soda Can / Chips | Enemy projectiles | ✅ Done | [link](assets/spritesheet-food-3x3-260x260.png) |
 | **Projectiles**| Coin | Player's projectile (ammo) | ❌ Todo | [link](#) |
 | **Environment**| Floor Texture | Tileable warehouse/parking texture | ❌ Todo | [link](#) |
 | **VFX** | Explosion / Sparkles | Destroyed machine & coin fountain | ❌ Todo | [link](#) |
