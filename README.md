@@ -78,3 +78,45 @@ At the end of each wave, the player chooses one of three random power-up cards:
 ### 7. Win/Loss Conditions
 * **Defeat:** The "Health" bar (or "Blood Sugar Level") reaches zero after taking too many hits.
 * **Victory:** Survive 10 waves and defeat the Final Boss: **The Industrial Walk-in Freezer**.
+
+
+## 🎮 Asset Development Tracker
+
+| Category | Asset Name | Description | Status | File Link |
+| :--- | :--- | :--- | :---: | :--- |
+ **Characters** | Player Sprite Sheet (Boy) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](./assets/sprites/player_girl.png) |
+| **Characters** | Player Sprite Sheet (Girl) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](./assets/sprites/player_girl.png) |
+| **Enemies** | Soda Machine | Enemy: shoots soda cans | ⏳ In Progress | [link](#) |
+| **Enemies** | Snack Machine | Enemy: shotgun-style chip spray | ❌ Todo | [link](#) |
+| **Enemies** | Coffee Bot | Enemy: leaves hot coffee puddles | ❌ Todo | [link](#) |
+| **Enemies** | Toy Capsule | Enemy: fast, explosive capsules | ❌ Todo | [link](#) |
+| **Enemies** | Industrial Fridge | Final Boss | ❌ Todo | [link](#) |
+| **Projectiles**| Soda Can / Chips | Enemy projectiles | ❌ Todo | [link](#) |
+| **Projectiles**| Coin | Player's projectile (ammo) | ❌ Todo | [link](#) |
+| **Environment**| Floor Texture | Tileable warehouse/parking texture | ❌ Todo | [link](#) |
+| **VFX** | Explosion / Sparkles | Destroyed machine & coin fountain | ❌ Todo | [link](#) |
+| **UI/HUD** | Health & Sugar Bar | Main player stats bars | ❌ Todo | [link](#) |
+| **UI/HUD** | Upgrade Cards | Icons for: Double Shot, Magnet, etc. | ❌ Todo | [link](#) |
+| **UI/HUD** | Title Screen | NES-style retro main menu | ❌ Todo | [link](#) |
+| **Audio** | Main Theme | Fast-paced Synthwave track | ❌ Todo | [link](#) |
+| **Audio** | SFX Pack | Coin shoot, Can hiss, Explosion | ❌ Todo | [link](#) |
+
+* ✅ Done
+* ⏳ In Progress
+* ❌ Todo
+
+![machine concept](design/concept-soda-machine-8direction-chatgp-ai-generated-20260415.png)
+
+![boy concept](design/concept-boy-8direction-chatgp-ai-generated-20260415.png)
+
+
+## 🛠️ Tech Stack
+
+This project is built using modern web technologies to ensure high performance and cross-browser compatibility for the **Gamedev.js** competition.
+
+### **Core Engine & Rendering**
+* **[Kontra.js](https://github.com/straker/kontra)** - A lightweight JavaScript gaming micro-library, optimized for js13kGames.
+
+### Assets & Tools
+* **Inkscape**
+
