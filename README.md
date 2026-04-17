@@ -127,6 +127,9 @@ At the end of each wave, the player chooses one of three random power-up cards:
 ### Bullet
 ![bullet](assets/spritesheet-bullet-2x4-120x120.png)
 
+### Cap
+![cap](assets/spritesheet-cap-2x4-120x120.png)
+
 ### Machines
 ![machine red](assets/spritesheet-machine-red-4x2-250x350.png)
 
