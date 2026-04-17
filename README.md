@@ -89,12 +89,15 @@ At the end of each wave, the player chooses one of three random power-up cards:
 | :--- | :--- | :--- | :---: | :--- |
  **Characters** | Player Sprite Sheet (Boy) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](assets/spritesheet-boy-4x3-100x150.png) |
 | **Characters** | Player Sprite Sheet (Girl) | Idle, Walk, Shoot (4 directions) | ✅ Done | [link](assets/spritesheet-girl-4x3-100x150.png) |
-| **Enemies** | Soda Machine | Enemy: shoots soda cans | ✅ Done | [link](assets/spritesheet-machine-red-4x2-250x350.png) |
-| **Enemies** | Snack Machine | Enemy: shotgun-style chip spray | ✅ Done | [link](assets/spritesheet-machine-yellow-4x2-250x350.png) |
-| **Enemies** | Coffee Bot | Enemy: leaves hot coffee puddles | ✅ Done | [link](assets/spritesheet-machine-blue-4x2-250x350.png) |
+| **Enemies** | Soda Machine | Enemy RED: shoots soda cans | ✅ Done | [link](assets/spritesheet-machine-red-4x2-250x350.png) |
+| **Enemies** | Snack Machine | Enemy YELLOW: shotgun-style chip spray | ✅ Done | [link](assets/spritesheet-machine-yellow-4x2-250x350.png) |
+| **Enemies** | Coffee Bot | Enemy BLUE: leaves hot coffee puddles | ✅ Done | [link](assets/spritesheet-machine-blue-4x2-250x350.png) |
 | **Enemies** | Industrial Fridge | Final Boss | ❌ Todo | [link](#) |
+| **Collectibles**| Coin | Ammo currency | ✅ Done | [link](assets/spritesheet-coin-2x4-120x120.png) |
+| **Collectibles**| Sugar | Upgrades currency | ✅ Done | [link](assets/spritesheet-sugar-2x4-120x120.png) |
 | **Projectiles**| Soda Can / Chips | Enemy projectiles | ✅ Done | [link](assets/spritesheet-food-3x3-130x130.png) |
-| **Projectiles**| Coin | Player's projectile (ammo) | ❌ Todo | [link](#) |
+| **Projectiles**| Bullet | Player's projectile (ammo) | ✅ Done | [link](assets/spritesheet-bullet-2x4-120x120.png) |
+| **Projectiles**| Cap | Thrown out on enemy hit | ✅ Done | [link](assets/spritesheet-cap-2x4-120x120.png) |
 | **Environment**| Floor Texture | Tileable warehouse/parking texture | ❌ Todo | [link](#) |
 | **VFX** | Explosion / Sparkles | Destroyed machine & coin fountain | ❌ Todo | [link](#) |
 | **UI/HUD** | Health & Sugar Bar | Main player stats bars | ❌ Todo | [link](#) |
