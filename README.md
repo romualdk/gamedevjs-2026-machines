@@ -144,8 +144,9 @@ At the end of each wave, the player chooses one of three random power-up cards:
 
 https://alkakrab.itch.io/free-shooter-synthwave-music-pack
 
-* [Shooter Synthwave 1 Loop](assets/loop.mp3)
-* [(Soft Loop For Dialogues, Pause or Other Things) 9](assets/short-Loop.mp3)
+* [(Soft Loop For Dialogues, Pause or Other Things) 9](assets/short-loop.mp3)
+
+https://pixabay.com/sound-effects
 
 ## 🛠️ Tech Stack
 
