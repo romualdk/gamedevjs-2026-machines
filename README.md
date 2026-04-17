@@ -110,7 +110,7 @@ At the end of each wave, the player chooses one of three random power-up cards:
 * ⏳ In Progress
 * ❌ Todo
 
-## Assets
+## Spritesheets
 
 ### Boy
 ![boy](assets/spritesheet-boy-4x3-100x150.png)
@@ -140,7 +140,12 @@ At the end of each wave, the player chooses one of three random power-up cards:
 
 ![machine yellow](assets/spritesheet-machine-yellow-4x2-250x350.png)
 
+## Audio
 
+https://alkakrab.itch.io/free-shooter-synthwave-music-pack
+
+* [Shooter Synthwave 1 Loop](assets/loop.mp3)
+* [(Soft Loop For Dialogues, Pause or Other Things) 9](assets/short-Loop.mp3)
 
 ## 🛠️ Tech Stack
 
