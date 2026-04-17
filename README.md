@@ -118,13 +118,13 @@ At the end of each wave, the player chooses one of three random power-up cards:
 ### Food
 ![food](assets/spritesheet-food-3x3-130x130.png)
 
-## Coin
+### Coin
 ![coin](assets/spritesheet-coin-2x4-120x120.png)
 
-## Sugar
+### Sugar
 ![sugar](assets/spritesheet-sugar-2x4-120x120.png)
 
-## Bullet
+### Bullet
 ![bullet](assets/spritesheet-bullet-2x4-120x120.png)
 
 ### Machines
