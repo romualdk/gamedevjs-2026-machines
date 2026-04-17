@@ -52,10 +52,13 @@ https://gamedevjs.com/competitions/gamedev-js-jam-2026-start-and-theme-announcem
 
 ### 4. Progression System (Upgrades)
 At the end of each wave, the player chooses one of three random power-up cards:
-* **Double Shot:** Fire two coins simultaneously.
-* **Sugar Rush:** Increases movement speed by 15%.
-* **Magnet:** Attracts coins and sugar from a further distance.
-* **Recycling:** 20% chance that a fired coin is added back to your wallet.
+
+* **Sugar Rush:** +15% Movement Speed
+* **Extra Carbonation:** +20% Projectile Velocity
+* **Quick Change:** -15% Fire Cooldown
+* **Magnet:** Wider Collection Range
+
+![upgrades](design/Gemini_Generated_Image_xeo0txeo0txeo0tx.png)
 
 ---
 
@@ -104,18 +107,34 @@ At the end of each wave, the player chooses one of three random power-up cards:
 * ⏳ In Progress
 * ❌ Todo
 
-![machine concept](design/concept-soda-machine-8direction-chatgp-ai-generated-20260415.png)
+## Assets
 
-![boy concept](design/concept-boy-8direction-chatgp-ai-generated-20260415.png)
+### Boy
+![boy](assets/spritesheet-boy-4x3-100x150.png)
+
+### Girl
+![girl](assets/spritesheet-girl-4x3-100x150.png)
+
+### Food
+![food](assets/spritesheet-food-3x3-260x260.png)
+
+### Machines
+![machine red](assets/spritesheet-machine-red-4x2-250x350.png)
+
+![machine blue](assets/spritesheet-machine-blue-4x2-250x350.png)
+
+![machine yellow](assets/spritesheet-machine-yellow-4x2-250x350.png)
+
 
 
 ## 🛠️ Tech Stack
 
-This project is built using modern web technologies to ensure high performance and cross-browser compatibility for the **Gamedev.js** competition.
-
-### **Core Engine & Rendering**
-* **[Kontra.js](https://github.com/straker/kontra)** - A lightweight JavaScript gaming micro-library, optimized for js13kGames.
-
 ### Assets & Tools
-* **Inkscape**
+* **[Gemini](https://gemini.google.com/)** - Concepts, ideas, design document, assets
+* **[Picsart](https://picsart.com/background-remover/)** - Background remover
+* **[Gimp](https://www.gimp.org/)** - Image editing, final assets
+* **[TinyPNG](https://tinypng.com/)** - Assets file size optimization
+
+### Core Engine & Rendering
+* **[Kontra.js](https://github.com/straker/kontra)** - A lightweight JavaScript gaming micro-library, optimized for js13kGames.
 
