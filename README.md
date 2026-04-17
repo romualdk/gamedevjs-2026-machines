@@ -93,7 +93,7 @@ At the end of each wave, the player chooses one of three random power-up cards:
 | **Enemies** | Snack Machine | Enemy: shotgun-style chip spray | ✅ Done | [link](assets/spritesheet-machine-yellow-4x2-250x350.png) |
 | **Enemies** | Coffee Bot | Enemy: leaves hot coffee puddles | ✅ Done | [link](assets/spritesheet-machine-blue-4x2-250x350.png) |
 | **Enemies** | Industrial Fridge | Final Boss | ❌ Todo | [link](#) |
-| **Projectiles**| Soda Can / Chips | Enemy projectiles | ✅ Done | [link](assets/spritesheet-food-3x3-260x260.png) |
+| **Projectiles**| Soda Can / Chips | Enemy projectiles | ✅ Done | [link](assets/spritesheet-food-3x3-130x130.png) |
 | **Projectiles**| Coin | Player's projectile (ammo) | ❌ Todo | [link](#) |
 | **Environment**| Floor Texture | Tileable warehouse/parking texture | ❌ Todo | [link](#) |
 | **VFX** | Explosion / Sparkles | Destroyed machine & coin fountain | ❌ Todo | [link](#) |
@@ -116,7 +116,7 @@ At the end of each wave, the player chooses one of three random power-up cards:
 ![girl](assets/spritesheet-girl-4x3-100x150.png)
 
 ### Food
-![food](assets/spritesheet-food-3x3-260x260.png)
+![food](assets/spritesheet-food-3x3-130x130.png)
 
 ### Machines
 ![machine red](assets/spritesheet-machine-red-4x2-250x350.png)
