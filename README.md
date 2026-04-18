@@ -96,6 +96,7 @@ At the end of each wave, the player chooses one of three random power-up cards:
 | **Collectibles**| Coin | Ammo currency | ✅ Done | [link](assets/spritesheet-coin-2x4-120x120.png) |
 | **Collectibles**| Sugar | Upgrades currency | ✅ Done | [link](assets/spritesheet-sugar-2x4-120x120.png) |
 | **Projectiles**| Soda Can / Chips | Enemy projectiles | ✅ Done | [link](assets/spritesheet-food-3x3-130x130.png) |
+| **Projectiles**| Trails | ✅ Done | [link](assets/spritesheet-trail-3x9-125x125.png) |
 | **Projectiles**| Bullet | Player's projectile (ammo) | ✅ Done | [link](assets/spritesheet-bullet-2x4-120x120.png) |
 | **Projectiles**| Cap | Thrown out on enemy hit | ✅ Done | [link](assets/spritesheet-cap-2x4-120x120.png) |
 | **Environment**| Floor Texture | Tileable warehouse/parking texture | ❌ Todo | [link](#) |
@@ -120,6 +121,10 @@ At the end of each wave, the player chooses one of three random power-up cards:
 
 ### Food
 ![food](assets/spritesheet-food-3x3-130x130.png)
+
+### Trail
+
+![trail](assets/spritesheet-trail-3x9-125x125.png)
 
 ### Coin
 ![coin](assets/spritesheet-coin-2x4-120x120.png)
