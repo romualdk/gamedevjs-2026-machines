@@ -1,12 +1,24 @@
-extends Area2D
-signal hit
+extends CharacterBody2D
+##signal hit
 
-@export var speed = 400
+@export var bullet_scene: PackedScene
+@onready var muzzle: Marker2D = $Muzzle
+@onready var shoot_timer: Timer = $ShootTimer
+@onready var shoot_sound_player: AudioStreamPlayer2D = $ShootSoundPlayer
 
+@export var speed = 300
+@export var bullet_spawn_distance: float = 80.0
+##var velocity = Vector2.ZERO
 var last_direction = "down"
 
 func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+	if Input.is_action_just_pressed("shoot"):
+		if shoot_timer.is_stopped():
+			shoot()
+			shoot_timer.start()
+	
+	velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -37,3 +49,21 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 		$AnimatedSprite2D.animation = "stand_" + last_direction
+		
+	move_and_slide()
+		
+func shoot():
+	var b = bullet_scene.instantiate()
+	b.additional_velocity = velocity
+	get_tree().root.add_child(b)
+	var mouse_pos = get_global_mouse_position()
+	var direction = (mouse_pos - muzzle.global_position).normalized()
+	var spawn_pos = muzzle.global_position + (direction * bullet_spawn_distance)
+	b.global_position = spawn_pos
+	b.rotation = direction.angle()
+	
+	shoot_sound_player.play()
+	
+func take_damage():
+	print("damage")
+	

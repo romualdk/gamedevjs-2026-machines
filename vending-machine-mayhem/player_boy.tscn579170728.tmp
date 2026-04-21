@@ -160,8 +160,7 @@ random_pitch = 1.0656005
 streams_count = 1
 stream_0/stream = ExtResource("4_yxlpv")
 
-[node name="Player" type="CharacterBody2D" unique_id=1277585748 groups=["player"]]
-collision_mask = 2
+[node name="Player" type="CharacterBody2D" unique_id=1277585748]
 script = ExtResource("1_nay2l")
 bullet_scene = ExtResource("2_rewg2")
 

@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dptdvxkv61bdp"]
+
+[ext_resource type="Texture2D" uid="uid://rj5yybcbbytv" path="res://spritesheet-machine-red-4x2-250x350.png" id="1_1epgo"]
+[ext_resource type="Script" uid="uid://cfemcgyeitc2c" path="res://vending_machine_soda.gd" id="1_jdj2g"]
+[ext_resource type="PackedScene" uid="uid://btykpvvqle0r7" path="res://soda.tscn" id="2_chglt"]
+[ext_resource type="AudioStream" uid="uid://c24e0s5e5r18b" path="res://freesound_community-sound-of-opening-cola-can-43538.mp3" id="4_wffog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdj2g"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(750, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chglt"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(0, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wffog"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(500, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6jso"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(250, 350, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t547h"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(0, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imw0f"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(500, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2074j"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(250, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo1qt"]
+atlas = ExtResource("1_1epgo")
+region = Rect2(750, 0, 250, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tf8cb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdj2g")
+}],
+"loop": true,
+"name": &"east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chglt")
+}],
+"loop": true,
+"name": &"north",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wffog")
+}],
+"loop": true,
+"name": &"north-east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6jso")
+}],
+"loop": true,
+"name": &"north-west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t547h")
+}],
+"loop": true,
+"name": &"south",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imw0f")
+}],
+"loop": true,
+"name": &"south-east",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2074j")
+}],
+"loop": true,
+"name": &"south-west",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo1qt")
+}],
+"loop": true,
+"name": &"west",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrgqs"]
+size = Vector2(180, 250)
+
+[node name="VendingMachineSoda" type="CharacterBody2D" unique_id=308537760]
+collision_layer = 2
+collision_mask = 6
+collision_priority = 99.0
+script = ExtResource("1_jdj2g")
+soda_red_scene = ExtResource("2_chglt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=801517360]
+sprite_frames = SubResource("SpriteFrames_tf8cb")
+animation = &"south-east"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=680900644]
+shape = SubResource("RectangleShape2D_wrgqs")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=2076161773]
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1581992673]
+wait_time = 2.0
+one_shot = true
+
+[node name="ShootSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1968799469]
+stream = ExtResource("4_wffog")

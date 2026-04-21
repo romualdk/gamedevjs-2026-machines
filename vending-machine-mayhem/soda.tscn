@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://btykpvvqle0r7"]
+
+[ext_resource type="Script" uid="uid://bpgsyktdwjuvt" path="res://soda.gd" id="1_pt5tr"]
+[ext_resource type="PackedScene" uid="uid://b7pc5o5a0xobs" path="res://explosion.tscn" id="2_12dk7"]
+[ext_resource type="Texture2D" uid="uid://che3m6x0wm12f" path="res://spritesheet-food-3x3-130x130.png" id="3_l1tsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u3sxw"]
+size = Vector2(60, 40)
+
+[node name="Soda" type="Area2D" unique_id=2094984152]
+script = ExtResource("1_pt5tr")
+explosion_scene = ExtResource("2_12dk7")
+
+[node name="Soda" type="Sprite2D" parent="." unique_id=877927319]
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_l1tsm")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1726671971]
+shape = SubResource("RectangleShape2D_u3sxw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1776278835]
+
+[node name="HeadMuzzle" type="Marker2D" parent="." unique_id=803802707]
+position = Vector2(42, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
