@@ -71,6 +71,8 @@ animations = [{
 }]
 
 [node name="Bullet" type="Area2D" unique_id=1847612793]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_v8qja")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1208803167]
@@ -81,3 +83,5 @@ sprite_frames = SubResource("SpriteFrames_as0xd")
 autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=259987995]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

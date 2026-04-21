@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://13onqrqnecur"]
+
+[ext_resource type="Texture2D" uid="uid://che3m6x0wm12f" path="res://spritesheet-food-3x3-130x130.png" id="1_7h553"]
+[ext_resource type="Script" uid="uid://0ed8toa3jjg1" path="res://chips.gd" id="1_xk8k6"]
+[ext_resource type="PackedScene" uid="uid://b7pc5o5a0xobs" path="res://explosion.tscn" id="2_r3sp6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q28ic"]
+size = Vector2(40, 40)
+
+[node name="Chips" type="Area2D" unique_id=265581965]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_xk8k6")
+explosion_scene = ExtResource("2_r3sp6")
+
+[node name="Chips" type="Sprite2D" parent="." unique_id=604804530]
+rotation = 1.5707964
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_7h553")
+hframes = 3
+vframes = 3
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1419340050]
+shape = SubResource("RectangleShape2D_q28ic")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1467829138]
+
+[node name="HeadMuzzle" type="Marker2D" parent="." unique_id=560820557]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

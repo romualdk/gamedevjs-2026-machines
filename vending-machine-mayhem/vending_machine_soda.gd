@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @export var soda_red_scene: PackedScene
 
+@export var life = 3
 @export var speed = 100.0
 @export var detection_range = 5000.0
 @export var stop_range: float = 600.0
@@ -12,13 +13,14 @@ var player = null
 @onready var muzzle: Marker2D = $Muzzle
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_sound_player: AudioStreamPlayer2D = $ShootSoundPlayer
+@onready var hit_sound_player: AudioStreamPlayer2D = $HitSoundPlayer
 
 @export var bullet_spawn_distance: float = 100.0
 
 func _ready():
 	# Find the player in the scene tree
 	player = get_tree().get_first_node_in_group("player")
-	print(player)
+	shoot_timer.wait_time = randf_range(2, 3)
 
 func _physics_process(_delta):
 	if player:
@@ -68,9 +70,22 @@ func update_animation(direction: Vector2):
 		sprite.play("north")
 	elif angle_deg > -67.5 and angle_deg <= -22.5:
 		sprite.play("north-east")
+
+func take_damage():
+	hit_sound_player.play()
+	var material = sprite.material as ShaderMaterial
+	material.set_shader_parameter("flash_modifier", 1.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(material, "shader_parameter/flash_modifier", 0.0, 0.2)
+	
+	life -= 1
+	
+	if life <= 0:
+		queue_free()
 		
 func shoot():
 	var b = soda_red_scene.instantiate()
+	b.source_node = self
 	b.additional_velocity = velocity
 	get_tree().root.add_child(b)
 	var player_pos = player.global_position

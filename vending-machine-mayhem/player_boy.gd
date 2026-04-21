@@ -11,6 +11,8 @@ extends CharacterBody2D
 ##var velocity = Vector2.ZERO
 var last_direction = "down"
 
+@onready var sprite = $AnimatedSprite2D
+
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		if shoot_timer.is_stopped():
@@ -65,5 +67,8 @@ func shoot():
 	shoot_sound_player.play()
 	
 func take_damage():
-	print("damage")
+	var material = sprite.material as ShaderMaterial
+	material.set_shader_parameter("flash_modifier", 1.0)
+	var tween = get_tree().create_tween()
+	tween.tween_property(material, "shader_parameter/flash_modifier", 0.0, 0.2)
 	

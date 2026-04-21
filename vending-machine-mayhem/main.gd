@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var enemy_scene: PackedScene 
+@export var soda_machine_scene: PackedScene
+@export var chips_machine_scene: PackedScene
 
 @export var min_spawn_distance: float = 1000.0
 @export var max_spawn_distance: float = 1500.0
@@ -13,8 +14,13 @@ func _on_spawn_timer_timeout() -> void:
 		
 		
 func spawn_enemy_randomly():
-	# Create an instance of the enemy
-	var enemy_instance = enemy_scene.instantiate()
+	var n = randi_range(0, 1)
+	var enemy_instance
+	
+	if n == 0:
+		enemy_instance = soda_machine_scene.instantiate()
+	else:
+		enemy_instance = chips_machine_scene.instantiate()
 	
 	# 2. Calculate a random point in a circle
 	var random_angle = randf_range(0, 2 * PI)
