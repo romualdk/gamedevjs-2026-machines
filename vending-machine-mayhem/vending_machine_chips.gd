@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal killed
 @export var chips_scene: PackedScene
 
 @export var life = 5
@@ -81,6 +82,7 @@ func take_damage():
 	life -= 1
 	
 	if life <= 0:
+		killed.emit()
 		queue_free()
 		
 func shoot():

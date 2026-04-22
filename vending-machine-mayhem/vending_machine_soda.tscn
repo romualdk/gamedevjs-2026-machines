@@ -121,6 +121,9 @@ collision_mask = 6
 collision_priority = 99.0
 script = ExtResource("1_jdj2g")
 soda_red_scene = ExtResource("2_chglt")
+life = 1
+stop_range = 200.0
+shoot_range = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=801517360]
 material = SubResource("ShaderMaterial_imw0f")

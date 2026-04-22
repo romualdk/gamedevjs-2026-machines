@@ -1,12 +1,20 @@
 extends CharacterBody2D
-##signal hit
+signal killed
+signal hit(life)
+signal update_sugar(sugar)
+signal update_coins(coins)
 
 @export var bullet_scene: PackedScene
 @onready var muzzle: Marker2D = $Muzzle
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_sound_player: AudioStreamPlayer2D = $ShootSoundPlayer
+@onready var no_coins_player: AudioStreamPlayer2D = $NoCoinsPlayer
 
+@export var life = 5
+@export var sugar = 0
+@export var coins = 50
 @export var speed = 300
+@export var collect_range = 100
 @export var bullet_spawn_distance: float = 80.0
 ##var velocity = Vector2.ZERO
 var last_direction = "down"
@@ -14,10 +22,15 @@ var last_direction = "down"
 @onready var sprite = $AnimatedSprite2D
 
 func _process(delta):
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and coins > 0:
 		if shoot_timer.is_stopped():
+			coins -= 1
+			update_coins.emit(coins)
 			shoot()
 			shoot_timer.start()
+	
+	if Input.is_action_just_pressed("shoot") and coins <= 0:
+		no_coins_player.play()
 	
 	velocity = Vector2.ZERO
 	
@@ -71,4 +84,9 @@ func take_damage():
 	material.set_shader_parameter("flash_modifier", 1.0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(material, "shader_parameter/flash_modifier", 0.0, 0.2)
+	
+	life -= 1
+	hit.emit(life)
+	if life <= 0:
+		killed.emit()
 	

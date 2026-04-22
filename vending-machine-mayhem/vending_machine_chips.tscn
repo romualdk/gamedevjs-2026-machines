@@ -120,8 +120,10 @@ collision_layer = 2
 collision_mask = 6
 script = ExtResource("1_f1vph")
 chips_scene = ExtResource("2_orw2k")
+life = 2
 speed = 150.0
-stop_range = 700.0
+stop_range = 250.0
+shoot_range = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276202093]
 material = SubResource("ShaderMaterial_u4x0k")

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal killed
 @export var soda_red_scene: PackedScene
 
 @export var life = 3
@@ -21,6 +22,7 @@ func _ready():
 	# Find the player in the scene tree
 	player = get_tree().get_first_node_in_group("player")
 	shoot_timer.wait_time = randf_range(2, 3)
+	shoot_timer.start()
 
 func _physics_process(_delta):
 	if player:
@@ -81,6 +83,7 @@ func take_damage():
 	life -= 1
 	
 	if life <= 0:
+		killed.emit()
 		queue_free()
 		
 func shoot():

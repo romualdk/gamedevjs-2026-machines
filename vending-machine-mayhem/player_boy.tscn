@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwiphphw3eqx1" path="res://bullet.tscn" id="2_rewg2"]
 [ext_resource type="Shader" uid="uid://d1olpa7jajlh7" path="res://hit_flash.gdshader" id="3_yxlpv"]
 [ext_resource type="AudioStream" uid="uid://urm5qh1rvmd8" path="res://laserSmall_000.mp3" id="4_yxlpv"]
+[ext_resource type="AudioStream" uid="uid://innctgvct5vo" path="res://davidgallie-small-bottle-cap-dropped-139339.mp3" id="6_mvitu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nay2l"]
 size = Vector2(100, 150)
@@ -190,3 +191,6 @@ one_shot = true
 stream = SubResource("AudioStreamRandomizer_m5sm7")
 pitch_scale = 1.5
 panning_strength = 2.0
+
+[node name="NoCoinsPlayer" type="AudioStreamPlayer2D" parent="." unique_id=180348616]
+stream = ExtResource("6_mvitu")
