@@ -14,15 +14,24 @@ signal update_coins(coins)
 @onready var magnet_shape = $MagnetArea
 
 @export var life = 5
-@export var sugar = 0
+@export var sugar = 5
 @export var coins = 5
 @export var speed = 300
+@export var bullet_speed = 600
 @export var collect_range = 100
 @export var bullet_spawn_distance: float = 80.0
 ##var velocity = Vector2.ZERO
 var last_direction = "down"
 
 @onready var sprite = $AnimatedSprite2D
+
+func upgradeMagnet():
+	var collision_node = $MagnetArea/MagnetCollisionShape
+	collision_node.shape = collision_node.shape.duplicate()
+	collision_node.shape.radius *= 1.15
+	
+func upgradeCooldown():
+	shoot_timer.wait_time *= 0.9
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot") and coins > 0:
@@ -72,6 +81,7 @@ func _process(delta):
 		
 func shoot():
 	var b = bullet_scene.instantiate()
+	b.speed = bullet_speed
 	b.additional_velocity = velocity
 	get_tree().root.add_child(b)
 	var mouse_pos = get_global_mouse_position()
@@ -98,6 +108,9 @@ func collect_coin():
 	coins += 1
 	update_coins.emit(coins)
 	
+func collect_sugar(qty):
+	sugar += qty
+	update_sugar.emit(sugar)
 	
 func increase_magnet_range(amount: float):
 	magnet_shape.shape.radius += amount

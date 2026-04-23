@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btykpvvqle0r7" path="res://soda.tscn" id="2_chglt"]
 [ext_resource type="Shader" uid="uid://d1olpa7jajlh7" path="res://hit_flash.gdshader" id="3_e6jso"]
 [ext_resource type="PackedScene" uid="uid://tatcedo1loq2" path="res://coin.tscn" id="3_t547h"]
+[ext_resource type="PackedScene" uid="uid://bcwlsaphbyxxm" path="res://sugar.tscn" id="4_2074j"]
 [ext_resource type="AudioStream" uid="uid://c24e0s5e5r18b" path="res://freesound_community-sound-of-opening-cola-can-43538.mp3" id="4_wffog"]
 [ext_resource type="AudioStream" uid="uid://urm5qh1rvmd8" path="res://laserSmall_000.mp3" id="6_imw0f"]
 
@@ -123,6 +124,7 @@ collision_priority = 99.0
 script = ExtResource("1_jdj2g")
 soda_red_scene = ExtResource("2_chglt")
 coin_scene = ExtResource("3_t547h")
+sugar_scene = ExtResource("4_2074j")
 life = 1
 stop_range = 200.0
 shoot_range = 500.0

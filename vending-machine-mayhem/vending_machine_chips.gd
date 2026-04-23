@@ -2,6 +2,7 @@ extends CharacterBody2D
 signal killed
 @export var chips_scene: PackedScene
 @export var coin_scene: PackedScene
+@export var sugar_scene: PackedScene
 
 @export var life = 5
 @export var speed = 100.0
@@ -89,6 +90,16 @@ func take_damage(bullet_direction: Vector2):
 		coin.global_position = global_position
 		var random_dir = hit_direction.rotated(randf_range(-0.75, 0.75))
 		coin.launch(random_dir)
+		
+	var sugars = randi_range(1, 2)
+	
+	for i in range(sugars):
+		var hit_direction: Vector2 = bullet_direction * randf_range(0.8, 1.2)
+		var sugar = sugar_scene.instantiate()
+		get_parent().add_child(sugar)
+		sugar.global_position = global_position
+		var random_dir = hit_direction.rotated(randf_range(-0.75, 0.75))
+		sugar.launch(random_dir)
 		
 	life -= 1
 	

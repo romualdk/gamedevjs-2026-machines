@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bcwlsaphbyxxm"]
+
+[ext_resource type="Texture2D" uid="uid://bj1ueftcshftu" path="res://spritesheet-sugar-2x4-120x120.png" id="1_pfnow"]
+[ext_resource type="Script" uid="uid://dqvge0tiff3uh" path="res://sugar.gd" id="1_xng1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qbigf"]
+size = Vector2(40, 40)
+
+[node name="Sugar" type="Area2D" unique_id=1825209619]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_xng1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=999018754]
+shape = SubResource("RectangleShape2D_qbigf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394388059]
+texture = ExtResource("1_pfnow")
+hframes = 4
+vframes = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

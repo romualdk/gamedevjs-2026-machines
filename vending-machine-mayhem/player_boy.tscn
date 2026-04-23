@@ -189,7 +189,7 @@ animation = &"stand_down"
 [node name="Muzzle" type="Marker2D" parent="." unique_id=2101822683]
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=2048834034]
-wait_time = 0.2
+wait_time = 0.5
 one_shot = true
 
 [node name="ShootSoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1448781130]

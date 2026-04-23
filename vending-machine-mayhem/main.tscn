@@ -6,13 +6,25 @@
 [ext_resource type="PackedScene" uid="uid://56bjndsqs8k1" path="res://vending_machine_chips.tscn" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dd4e8gsa1l45" path="res://gradient-radial.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dptdvxkv61bdp" path="res://vending_machine_soda.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://tatcedo1loq2" path="res://coin.tscn" id="4_vivmo"]
 [ext_resource type="Texture2D" uid="uid://0xgjaisy4ex3" path="res://logo.png" id="7_272bh"]
 [ext_resource type="AudioStream" uid="uid://cym0i8ii1hvr1" path="res://lordsonny_two-debris-break-3-457508.mp3" id="8_efxa6"]
+[ext_resource type="AudioStream" uid="uid://tfxme8vvpwrc" path="res://short-loop.mp3" id="8_w48qg"]
 [ext_resource type="Texture2D" uid="uid://bn8x4ldrxsu7d" path="res://player_head.png" id="9_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://bl33vln6paayf" path="res://sugar.png" id="10_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://skj7m1x3vadt" path="res://coin.png" id="11_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://elr1pu7jckhk" path="res://game_over.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://cyg6i1i34fbcn" path="res://replay-small.png" id="13_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bohialvd20eht" path="res://upgrade_speed.png" id="16_cegan"]
+[ext_resource type="Texture2D" uid="uid://dj85vc2s3tdn1" path="res://upgrade_velocity.png" id="17_82xsv"]
+[ext_resource type="Texture2D" uid="uid://bq336yd700g5v" path="res://upgrade_speed_disabled.png" id="17_getpj"]
+[ext_resource type="Texture2D" uid="uid://fsabeexja6ip" path="res://upgrade_cooldown.png" id="18_getpj"]
+[ext_resource type="Texture2D" uid="uid://5uypwc3uayve" path="res://upgrade_velocity_disabled.png" id="19_d13ii"]
+[ext_resource type="Texture2D" uid="uid://b84yuys4arvd4" path="res://upgrade_magnet.png" id="19_ryguw"]
+[ext_resource type="Texture2D" uid="uid://d2e2ne64hk7v4" path="res://upgrade_cooldown_disabled.png" id="21_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://cs84dekpfjurr" path="res://upgrade_magnet_disabled.png" id="23_0odxb"]
+[ext_resource type="Texture2D" uid="uid://b147w6h18rggx" path="res://upgrade_life.png" id="24_0odxb"]
+[ext_resource type="Texture2D" uid="uid://l7s658s3y28n" path="res://upgrade_life_disabled.png" id="25_lswn8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -53,10 +65,17 @@ font_size = 48
 [sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
 font_size = 48
 
+[sub_resource type="LabelSettings" id="LabelSettings_vivmo"]
+font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_cegan"]
+font_size = 40
+
 [node name="Main" type="Node2D" unique_id=1114469347]
 script = ExtResource("1_lquwl")
 soda_machine_scene = ExtResource("4_1bvp3")
 chips_machine_scene = ExtResource("3_7mycd")
+coin_scene = ExtResource("4_vivmo")
 
 [node name="Game" type="Node2D" parent="." unique_id=794114279]
 
@@ -102,10 +121,27 @@ vending machine"
 label_settings = SubResource("LabelSettings_272bh")
 horizontal_alignment = 1
 
+[node name="BgMusicPlayer" type="AudioStreamPlayer2D" parent="Game/Player" unique_id=1816541756]
+process_mode = 3
+position = Vector2(-803, -453)
+stream = ExtResource("8_w48qg")
+volume_db = 10.0
+autoplay = true
+
 [node name="EnemyKilledPlayer" type="AudioStreamPlayer2D" parent="Game" unique_id=1138214751]
 stream = ExtResource("8_efxa6")
 
 [node name="GameOverTimer" type="Timer" parent="Game" unique_id=1617176486]
+wait_time = 1.5
+one_shot = true
+
+[node name="CoinSpawnTimer" type="Timer" parent="Game" unique_id=2110742295]
+wait_time = 5.0
+autostart = true
+
+[node name="NewWaveTimer" type="Timer" parent="Game" unique_id=599240411]
+process_mode = 3
+wait_time = 3.0
 one_shot = true
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2083779272]
@@ -177,13 +213,11 @@ label_settings = SubResource("LabelSettings_4c57u")
 vertical_alignment = 1
 
 [node name="VSeparator" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=952293632]
-visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=1113722561]
-visible = false
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 4
@@ -200,7 +234,7 @@ layout_mode = 2
 
 [node name="SugarInfo" type="Label" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer3" unique_id=2112337636]
 layout_mode = 2
-text = "0"
+text = "5"
 label_settings = SubResource("LabelSettings_4c57u")
 vertical_alignment = 1
 
@@ -265,13 +299,127 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="RestartButton" type="TextureButton" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=1078885318]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("13_ycdy4")
 stretch_mode = 3
+
+[node name="WaveClearScreen" type="CanvasLayer" parent="." unique_id=1538040845]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="WaveClearScreen" unique_id=26284522]
+offset_left = -336.0
+offset_top = -252.0
+offset_right = 2162.0
+offset_bottom = 1366.0
+color = Color(0, 0, 0, 0.6745098)
+
+[node name="CenterContainer" type="CenterContainer" parent="WaveClearScreen" unique_id=2024384015]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WaveClearScreen/CenterContainer" unique_id=1863098611]
+layout_mode = 2
+
+[node name="WaveClearLabel" type="Label" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=1251690792]
+layout_mode = 2
+text = "WAVE CLEAR"
+label_settings = SubResource("LabelSettings_vivmo")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=1389646950]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=1951404969]
+layout_mode = 2
+
+[node name="UpgradeSpeed" type="TextureButton" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=830536708]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("16_cegan")
+texture_disabled = ExtResource("17_getpj")
+
+[node name="VSeparator1" type="VSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=167958830]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UpgradeVelocity" type="TextureButton" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1476976796]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("17_82xsv")
+texture_disabled = ExtResource("19_d13ii")
+
+[node name="VSeparator2" type="VSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=491675945]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UpgradeCooldown" type="TextureButton" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=124947808]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("18_getpj")
+texture_disabled = ExtResource("21_1u8w0")
+
+[node name="VSeparator3" type="VSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1099049623]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UpgradeMagnet" type="TextureButton" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1406562610]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("19_ryguw")
+texture_disabled = ExtResource("23_0odxb")
+
+[node name="VSeparator4" type="VSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1776174696]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="UpgradeLife" type="TextureButton" parent="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer" unique_id=1717231280]
+process_mode = 3
+layout_mode = 2
+texture_normal = ExtResource("24_0odxb")
+texture_disabled = ExtResource("25_lswn8")
+
+[node name="HSeparator2" type="HSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=1736083670]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=832036943]
+layout_mode = 2
+alignment = 1
+
+[node name="UpgradeLabel" type="Label" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=339944991]
+layout_mode = 2
+text = "SELECT YOUR UPGRADE"
+label_settings = SubResource("LabelSettings_cegan")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="WaveClearScreen/CenterContainer/VBoxContainer" unique_id=697883214]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
 
 [connection signal="timeout" from="Game/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="killed" from="Game/VendingMachineSoda" to="." method="_on_vending_machine_soda_killed"]
 [connection signal="hit" from="Game/Player" to="." method="_on_player_hit"]
 [connection signal="update_coins" from="Game/Player" to="." method="_on_player_update_coins"]
+[connection signal="update_sugar" from="Game/Player" to="." method="_on_player_update_sugar"]
 [connection signal="timeout" from="Game/GameOverTimer" to="." method="_on_game_over_timer_timeout"]
+[connection signal="timeout" from="Game/CoinSpawnTimer" to="." method="_on_coin_spawn_timer_timeout"]
+[connection signal="timeout" from="Game/NewWaveTimer" to="." method="_on_new_wave_timer_timeout"]
 [connection signal="pressed" from="GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer/UpgradeSpeed" to="." method="_on_upgrade_speed_pressed"]
+[connection signal="pressed" from="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer/UpgradeVelocity" to="." method="_on_upgrade_velocity_pressed"]
+[connection signal="pressed" from="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer/UpgradeCooldown" to="." method="_on_upgrade_cooldown_pressed"]
+[connection signal="pressed" from="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer/UpgradeMagnet" to="." method="_on_upgrade_magnet_pressed"]
+[connection signal="pressed" from="WaveClearScreen/CenterContainer/VBoxContainer/HBoxContainer/UpgradeLife" to="." method="_on_upgrade_life_pressed"]
