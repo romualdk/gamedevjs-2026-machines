@@ -29,7 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body == source_node:
 		return # Ignore the creator
 	
-	body.take_damage()
+	body.take_damage(Vector2.from_angle(self.rotation) * 4)
 	spawn_explosion()
 	queue_free() # Destroy bullet on impact
 

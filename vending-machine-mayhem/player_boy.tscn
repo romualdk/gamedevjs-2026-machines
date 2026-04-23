@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://d1olpa7jajlh7" path="res://hit_flash.gdshader" id="3_yxlpv"]
 [ext_resource type="AudioStream" uid="uid://urm5qh1rvmd8" path="res://laserSmall_000.mp3" id="4_yxlpv"]
 [ext_resource type="AudioStream" uid="uid://innctgvct5vo" path="res://davidgallie-small-bottle-cap-dropped-139339.mp3" id="6_mvitu"]
+[ext_resource type="AudioStream" uid="uid://c3jwhuqrsjyhu" path="res://chieuk-coin-257878.mp3" id="7_m5sm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nay2l"]
 size = Vector2(100, 150)
@@ -168,8 +169,12 @@ random_pitch = 1.0656005
 streams_count = 1
 stream_0/stream = ExtResource("4_yxlpv")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5sm7"]
+radius = 300.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1277585748 groups=["player"]]
-collision_mask = 2
+collision_layer = 5
+collision_mask = 6
 script = ExtResource("1_nay2l")
 bullet_scene = ExtResource("2_rewg2")
 
@@ -194,3 +199,15 @@ panning_strength = 2.0
 
 [node name="NoCoinsPlayer" type="AudioStreamPlayer2D" parent="." unique_id=180348616]
 stream = ExtResource("6_mvitu")
+
+[node name="CollectCoinPlayer" type="AudioStreamPlayer2D" parent="." unique_id=352303312]
+stream = ExtResource("7_m5sm7")
+
+[node name="MagnetArea" type="Area2D" parent="." unique_id=1823633764]
+collision_layer = 4
+collision_mask = 4
+
+[node name="MagnetCollisionShape" type="CollisionShape2D" parent="MagnetArea" unique_id=213462541]
+shape = SubResource("CircleShape2D_m5sm7")
+
+[connection signal="area_entered" from="MagnetArea" to="." method="_on_magnet_area_area_entered"]

@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://caa8u0e55ynga" path="res://freesound_community-bite-potato-chips-83946.mp3" id="2_664yi"]
 [ext_resource type="PackedScene" uid="uid://13onqrqnecur" path="res://chips.tscn" id="2_orw2k"]
 [ext_resource type="Shader" uid="uid://d1olpa7jajlh7" path="res://hit_flash.gdshader" id="3_4pc4p"]
+[ext_resource type="PackedScene" uid="uid://tatcedo1loq2" path="res://coin.tscn" id="3_vlblu"]
 [ext_resource type="AudioStream" uid="uid://urm5qh1rvmd8" path="res://laserSmall_000.mp3" id="6_u4x0k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u4x0k"]
@@ -117,9 +118,10 @@ size = Vector2(180, 250)
 
 [node name="VendingMachineChips" type="CharacterBody2D" unique_id=2108956978]
 collision_layer = 2
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_f1vph")
 chips_scene = ExtResource("2_orw2k")
+coin_scene = ExtResource("3_vlblu")
 life = 2
 speed = 150.0
 stop_range = 250.0

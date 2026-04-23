@@ -1,6 +1,7 @@
 extends CharacterBody2D
 signal killed
 @export var chips_scene: PackedScene
+@export var coin_scene: PackedScene
 
 @export var life = 5
 @export var speed = 100.0
@@ -72,13 +73,23 @@ func update_animation(direction: Vector2):
 	elif angle_deg > -67.5 and angle_deg <= -22.5:
 		sprite.play("north-east")
 
-func take_damage():
+func take_damage(bullet_direction: Vector2):
 	hit_sound_player.play()
 	var material = sprite.material as ShaderMaterial
 	material.set_shader_parameter("flash_modifier", 1.0)
 	var tween = get_tree().create_tween()
 	tween.tween_property(material, "shader_parameter/flash_modifier", 0.0, 0.2)
 	
+	var coins = randi_range(1, 3)
+	
+	for i in range(coins):
+		var hit_direction: Vector2 = bullet_direction * randf_range(0.8, 1.2)
+		var coin = coin_scene.instantiate()
+		get_parent().add_child(coin)
+		coin.global_position = global_position
+		var random_dir = hit_direction.rotated(randf_range(-0.75, 0.75))
+		coin.launch(random_dir)
+		
 	life -= 1
 	
 	if life <= 0:

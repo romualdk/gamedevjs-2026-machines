@@ -9,10 +9,13 @@ signal update_coins(coins)
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var shoot_sound_player: AudioStreamPlayer2D = $ShootSoundPlayer
 @onready var no_coins_player: AudioStreamPlayer2D = $NoCoinsPlayer
+@onready var collect_coin_player: AudioStreamPlayer2D = $CollectCoinPlayer
+
+@onready var magnet_shape = $MagnetArea
 
 @export var life = 5
 @export var sugar = 0
-@export var coins = 50
+@export var coins = 5
 @export var speed = 300
 @export var collect_range = 100
 @export var bullet_spawn_distance: float = 80.0
@@ -79,7 +82,7 @@ func shoot():
 	
 	shoot_sound_player.play()
 	
-func take_damage():
+func take_damage(bullet_direction: Vector2):
 	var material = sprite.material as ShaderMaterial
 	material.set_shader_parameter("flash_modifier", 1.0)
 	var tween = get_tree().create_tween()
@@ -90,3 +93,16 @@ func take_damage():
 	if life <= 0:
 		killed.emit()
 	
+func collect_coin():
+	collect_coin_player.play()
+	coins += 1
+	update_coins.emit(coins)
+	
+	
+func increase_magnet_range(amount: float):
+	magnet_shape.shape.radius += amount
+
+
+func _on_magnet_area_area_entered(area: Area2D) -> void:
+	if area.has_method("start_magnetic_pull"):
+		area.start_magnetic_pull(self)

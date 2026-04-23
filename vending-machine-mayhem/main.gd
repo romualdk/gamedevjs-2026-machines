@@ -9,9 +9,9 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var spawnTimer = $Game/SpawnTimer
 @onready var infoLabel = $Game/Player/InfoLabel
-@onready var coinsInfo = $HUD/CoinsInfo
-@onready var playerInfo = $HUD/PlayerInfo
-@onready var waveInfo = $HUD/WaveInfo
+@onready var coinsInfo = $HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer/CoinsInfo
+@onready var playerInfo = $HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer2/PlayerInfo
+@onready var waveInfo = $HUD/HBoxContainer/Control/WaveInfo
 @onready var enemyKilledPlayer = $Game/EnemyKilledPlayer
 @onready var gameOverTimer = $Game/GameOverTimer
 
@@ -47,7 +47,7 @@ func machineKilled():
 
 func updateWaveInfo():
 	#waveInfo.text = "Wave " + str(wave) + " (" + str(enemiesKilled) + " / " + str(enemiesToSpawn) + ")"
-	waveInfo.text = "Wave " + str(wave) + " (" + str(enemiesToSpawn - enemiesKilled) + ")"
+	waveInfo.text = "Wave " + str(wave) + "  (" + str(enemiesToSpawn - enemiesKilled) + ")"
 
 func _on_vending_machine_soda_killed() -> void:
 	machineKilled()

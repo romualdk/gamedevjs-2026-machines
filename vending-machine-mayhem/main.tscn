@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://dd4e8gsa1l45" path="res://gradient-radial.png" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dptdvxkv61bdp" path="res://vending_machine_soda.tscn" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://0xgjaisy4ex3" path="res://logo.png" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://bj1ueftcshftu" path="res://spritesheet-sugar-2x4-120x120.png" id="8_5vw27"]
 [ext_resource type="AudioStream" uid="uid://cym0i8ii1hvr1" path="res://lordsonny_two-debris-break-3-457508.mp3" id="8_efxa6"]
-[ext_resource type="Texture2D" uid="uid://snxfuoho5la6" path="res://player_head.png" id="9_kek77"]
-[ext_resource type="Texture2D" uid="uid://dw2qd76yx3n03" path="res://spritesheet-coin-2x4-120x120.png" id="10_4c57u"]
+[ext_resource type="Texture2D" uid="uid://bn8x4ldrxsu7d" path="res://player_head.png" id="9_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://bl33vln6paayf" path="res://sugar.png" id="10_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://skj7m1x3vadt" path="res://coin.png" id="11_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://elr1pu7jckhk" path="res://game_over.png" id="12_dg77c"]
 [ext_resource type="Texture2D" uid="uid://cyg6i1i34fbcn" path="res://replay-small.png" id="13_ycdy4"]
 
@@ -47,10 +47,10 @@ shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.5882353)
 shadow_offset = Vector2(4, 3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
+[sub_resource type="LabelSettings" id="LabelSettings_ycdy4"]
 font_size = 48
 
-[sub_resource type="LabelSettings" id="LabelSettings_ycdy4"]
+[sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
 font_size = 48
 
 [node name="Main" type="Node2D" unique_id=1114469347]
@@ -111,71 +111,126 @@ one_shot = true
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2083779272]
 
 [node name="ColorRect" type="ColorRect" parent="HUD" unique_id=672602770]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.94600004
-anchor_right = 0.5
-anchor_bottom = 0.94600004
-offset_left = -804.0
-offset_top = -40.400024
-offset_right = 841.0
-offset_bottom = 55.599976
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0, 0, 0, 0.36862746)
 
-[node name="PlayerIcon" type="Sprite2D" parent="HUD" unique_id=951735]
-position = Vector2(550, 855)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("9_kek77")
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD" unique_id=1982601960]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 2
 
-[node name="SugarIcon" type="Sprite2D" parent="HUD" unique_id=1652160101]
-position = Vector2(800, 855)
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("8_5vw27")
-hframes = 4
-vframes = 2
-frame = 2
+[node name="Control" type="Control" parent="HUD/HBoxContainer" unique_id=881748571]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
 
-[node name="GoldIcon" type="Sprite2D" parent="HUD" unique_id=1119988013]
-position = Vector2(1050, 855)
-scale = Vector2(0.55, 0.55)
-texture = ExtResource("10_4c57u")
-hframes = 4
-vframes = 2
+[node name="WaveInfo" type="Label" parent="HUD/HBoxContainer/Control" unique_id=1564698672]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 307.0
+offset_bottom = 85.0
+text = "Wave 1 (2)"
+label_settings = SubResource("LabelSettings_ycdy4")
+vertical_alignment = 1
 
-[node name="PlayerInfo" type="Label" parent="HUD" unique_id=2111313418]
-offset_left = 595.0
-offset_top = 824.0
-offset_right = 676.0
-offset_bottom = 891.0
+[node name="CenterContainer" type="CenterContainer" parent="HUD/HBoxContainer" unique_id=1587819806]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/CenterContainer" unique_id=983543139]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=1973431305]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer2" unique_id=623840830]
+layout_mode = 2
+texture = ExtResource("9_ycdy4")
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer2" unique_id=941258529]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="PlayerInfo" type="Label" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer2" unique_id=2111313418]
+layout_mode = 2
 text = "5"
 label_settings = SubResource("LabelSettings_4c57u")
 vertical_alignment = 1
 
-[node name="SugarInfo" type="Label" parent="HUD" unique_id=2112337636]
-offset_left = 848.0
-offset_top = 821.0
-offset_right = 929.0
-offset_bottom = 888.0
+[node name="VSeparator" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=952293632]
+visible = false
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=1113722561]
+visible = false
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer3" unique_id=443172713]
+layout_mode = 2
+texture = ExtResource("10_ycdy4")
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer3" unique_id=1663307252]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="SugarInfo" type="Label" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer3" unique_id=2112337636]
+layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4c57u")
 vertical_alignment = 1
 
-[node name="CoinsInfo" type="Label" parent="HUD" unique_id=531919342]
-offset_left = 1086.0
-offset_top = 821.0
-offset_right = 1167.0
-offset_bottom = 888.0
-text = "10"
+[node name="VSeparator2" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=1817185624]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer" unique_id=435790699]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer" unique_id=2043038874]
+layout_mode = 2
+texture = ExtResource("11_ycdy4")
+stretch_mode = 5
+
+[node name="VSeparator" type="VSeparator" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer" unique_id=1915235129]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="CoinsInfo" type="Label" parent="HUD/HBoxContainer/CenterContainer/HBoxContainer/HBoxContainer" unique_id=531919342]
+layout_mode = 2
+text = "5"
 label_settings = SubResource("LabelSettings_4c57u")
 vertical_alignment = 1
 
-[node name="WaveInfo" type="Label" parent="HUD" unique_id=1564698672]
-offset_left = 27.0
-offset_top = 820.0
-offset_right = 311.0
-offset_bottom = 887.0
-text = "Wave 1 (0/4)"
-label_settings = SubResource("LabelSettings_ycdy4")
+[node name="Control2" type="Control" parent="HUD/HBoxContainer" unique_id=972928113]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=2088490809]
 process_mode = 3
@@ -188,20 +243,35 @@ offset_right = 1845.0
 offset_bottom = 931.0
 color = Color(0, 0, 0, 0.6745098)
 
-[node name="GameOverLogo" type="Sprite2D" parent="GameOverScreen" unique_id=1541598705]
-position = Vector2(815, 273)
-texture = ExtResource("12_dg77c")
+[node name="CenterContainer" type="CenterContainer" parent="GameOverScreen" unique_id=541879438]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="RestartButton" type="TextureButton" parent="GameOverScreen" unique_id=1078885318]
-offset_left = 713.0
-offset_top = 494.0
-offset_right = 898.0
-offset_bottom = 694.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverScreen/CenterContainer" unique_id=1142139566]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=1305737236]
+layout_mode = 2
+texture = ExtResource("12_dg77c")
+stretch_mode = 4
+
+[node name="HSeparator" type="HSeparator" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=2103195088]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="RestartButton" type="TextureButton" parent="GameOverScreen/CenterContainer/VBoxContainer" unique_id=1078885318]
+layout_mode = 2
 texture_normal = ExtResource("13_ycdy4")
+stretch_mode = 3
 
 [connection signal="timeout" from="Game/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="killed" from="Game/VendingMachineSoda" to="." method="_on_vending_machine_soda_killed"]
 [connection signal="hit" from="Game/Player" to="." method="_on_player_hit"]
 [connection signal="update_coins" from="Game/Player" to="." method="_on_player_update_coins"]
 [connection signal="timeout" from="Game/GameOverTimer" to="." method="_on_game_over_timer_timeout"]
-[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverScreen/CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
