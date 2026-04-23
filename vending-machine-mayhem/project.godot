@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="Vending Machine Mayhem"
+config/description="Dynamic top-down arena shooter (survival) where the player must survive relentless waves of aggressive vending machines.
+The game focuses on high-octane chaos, quick reflexes, and the humorous concept of fighting back against \"unhealthy snacks.\""
 run/main_scene="uid://cftkey4umdiwo"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://0xgjaisy4ex3"
+config/icon="uid://bn8x4ldrxsu7d"
 
 [display]
 
